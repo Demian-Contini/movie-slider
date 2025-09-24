@@ -8,3 +8,48 @@ body {
     background: #eaeaea;
     overflow: hidden;
 }
+
+/* ======================== CONTENEDOR PRINCIPAL ======================== */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px; /* Aumentamos el ancho */
+    height: 700px; /* Aumentamos el alto */
+    background: #f5f5f5;
+    box-shadow: 0 30px 50px #dbdbdb;
+}
+
+/* ======================== ESTILOS DE CADA TARJETA (ITEM) ======================== */
+.container .slide .item {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    transition: 0.5s;
+    background-color: transparent; /* Aseguramos que el fondo del 'item' sea transparente */
+}
+
+/* --- CLASES PARA LAS IMAGENES MINIATURAS --- */
+.item-punisher-mini {
+    background-image: url('./assets/img/img-frankSerie.jpg'); /* Imagen para la miniatura */
+}
+.item-boyka-mini {
+    background-image: url('./assets/img/img-boyka.jpg');
+}
+.item-creed1-mini {
+    background-image: url('./assets/img/img-creed1.jpg');
+}
+.item-creed3-mini {
+    background-image: url('./assets/img/img-creed2.jpg');
+}
+.item-jhon-mini {
+    background-image: url('./assets/img/img-jhon1.jpg');
+}
