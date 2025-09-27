@@ -53,3 +53,278 @@ body {
 .item-jhon-mini {
     background-image: url('./assets/img/img-jhon1.jpg');
 }
+
+/* --- ESTILOS DE LA IMAGEN DE FONDO PRINCIPAL --- */
+.bg-image-main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Por defecto, la imagen principal está oculta */
+    transition: opacity 0.5s;
+}
+
+.item-punisher-main {
+    background-image: url('./assets/bg/bg-punisher1.jpg');
+    transform: scaleX(-1);
+}
+.item-boyka-main {
+    background-image: url('./assets/bg/bg-boyka.jpg');
+}
+.item-creed1-main {
+    background-image: url('./assets/bg/bg-creed1.jpg');
+}
+.item-creed3-main {
+    background-image: url('./assets/bg/bg-creed3.jpg');
+}
+.item-jhon-main {
+    background-image: url('./assets/bg/bg-jhon1.jpg');
+}
+
+/* ====================== POSICIONAMIENTO DE ELEMENTOS DEL SLIDER ====================== */
+/* Posiciona la tarjeta principal y la secundaria */
+.slide .item:nth-child(1),
+.slide .item:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    background-image: none; /* Oculta la miniatura al expandirse */
+}
+
+/* Hace visible la imagen de fondo principal en la tarjeta activa */
+.slide .item:nth-child(2) .bg-image-main {
+    opacity: 1;
+}
+
+/* Posiciona las siguientes tarjetas a la derecha */
+.slide .item:nth-child(3) {
+    left: 50%;
+}
+
+.slide .item:nth-child(4) {
+    left: calc(50% + 220px);
+}
+
+.slide .item:nth-child(5) {
+    left: calc(50% + 440px);
+}
+
+/* Oculta las tarjetas que están más lejos */
+.slide .item:nth-child(n + 6) {
+    left: calc(50% + 660px);
+    opacity: 0;
+}
+/* ======================== ANIMACIÓN DE ENTRADA ======================== */
+/* Muestra el contenido del ítem principal y aplica la animación */
+.slide .item:nth-child(2) .content {
+    display: block; /* El JS hace visible el contenido del ítem principal */
+    animation: fadeInContent 0.7s ease-in-out forwards; /* Aplicamos la nueva animación */
+}
+/* ======================== ESTILOS DEL CONTENIDO DE LA TARJETA ======================== */
+.item .content {
+    position: absolute;
+    top: 52%;
+    left: 40px; /* Reducimos el valor para moverlo más a la izquierda */
+    width: 350px; /* Hacemos el contenedor un poco más estrecho */
+    text-align: left;
+    transform: translate(0, -50%);
+    font-family: system-ui, sans-serif;
+    display: none;
+    z-index: 1;
+
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px; /* Reducimos el padding para hacerlo más compacto */
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+/* --- ESTILO DEL TEXTO Y BOTON --- */
+.content .name {
+    font-size: 48px; /* Reducimos el tamaño del título */
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.content .des {
+    font-size: 16px; /* Reducimos el tamaño de la descripción */
+    line-height: 1.5;
+    font-weight: 400;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.content button {
+    padding: 12px 24px; /* Hacemos el botón un poco más chico */
+    background: rgba(119, 118, 118, 0.158);
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.content button:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: scale(1.05);
+}
+/* ---------------- NUEVA ANIMACIÓN ---------------- */
+/* Definimos una nueva animación para el contenido */
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, -50%);
+        filter: blur(0);
+    }
+}
+/* ======================== ESTILOS DE LOS BOTONES DE NAVEGACIÓN ======================== */
+.button {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    z-index: 10; /* Asegura que los botones estén por encima del resto del contenido */
+}
+
+.button button {
+    width: 40px;
+    height: 35px;
+    border-radius: 8px;
+    background: rgb(8, 8, 8); /* Fondo semitransparente */
+    border: 1px solid rgb(255, 255, 255); /* Borde blanco semitransparente */
+    color: #fff;
+    cursor: pointer;
+    margin: 0 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para un efecto de elevación */
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Efecto de desenfoque para que el fondo no distraiga */
+}
+
+.button button:hover {
+    background: #fff; /* Fondo se vuelve blanco sólido */
+    color: #000; /* Color del ícono se vuelve negro */
+    transform: scale(1.1); /* Ligeramente más grande al pasar el mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+
+
+@media (max-width: 768px) {
+    /* ======================== CONTENEDOR PRINCIPAL ======================== */
+    .container {
+        width: 100%;
+        height: 100vh;
+        background: #222; /* Un fondo sólido y oscuro para que la tarjeta resalte */
+        box-shadow: none;
+    }
+/* ======================== ESTILOS DE LA IMAGEN DE FONDO PRINCIPAL ======================== */
+.bg-image-main {
+    /* ... otras propiedades ... */
+    background-size: cover;
+    background-position: center; /* Posición inicial */
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+/* Posicion de las imagenes - fondo */
+.item-punisher-main {
+    background-position: 80% center; /* El 20% horizontal desplaza la imagen a la izquierda */
+}
+.item-boyka-main {
+    background-image: url('./assets/bg/bg-boyka.jpg');
+    background-size: auto 101%;
+    background-repeat: no-repeat; 
+    background-position: 40% center;
+}
+.item-creed1-main {
+    background-position: 15% center; /* El 20% horizontal desplaza la imagen a la izquierda */
+}
+.item-creed3-main {
+    background-position: 20% center; /* El 20% horizontal desplaza la imagen a la izquierda */
+}
+.item-jhon-main {
+    background-position: 35% center; /* El 20% horizontal desplaza la imagen a la izquierda */
+}
+
+    /* ======================== ESTILOS DE CADA TARJETA (ITEM) ======================== */
+    .container .slide .item {
+        /* Ocultamos todas las tarjetas por defecto */
+        display: none;
+    }
+
+    /* Hacemos la tarjeta principal visible, la centramos y le damos un tamaño de móvil */
+    .slide .item:nth-child(2) {
+        display: block;
+        width: 90%; /* La tarjeta ocupa el 90% del ancho */
+        height: 70vh; /* La tarjeta ocupa el 70% de la altura visible */
+        position: absolute; /* Usamos posicionamiento absoluto para centrarla */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centramos la tarjeta en la pantalla */
+        border-radius: 10px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Le damos una sombra para que "flote" */
+        background-image: none; /* Eliminamos la imagen de miniatura */
+    }
+
+    /* El resto de las tarjetas que no están activas deben estar ocultas */
+    .slide .item:nth-child(1),
+    .slide .item:nth-child(n + 3) {
+        display: none;
+    }
+
+    /* Hacemos visible la imagen de fondo principal en la tarjeta activa */
+    .slide .item:nth-child(2) .bg-image-main {
+        opacity: 1;
+        border-radius: 10px; /* Le damos bordes redondeados */
+    }
+    
+    /* ======================== ESTILOS DEL CONTENIDO DE LA TARJETA ======================== */
+    .item .content {
+        left: 20px;
+        top: 65%;
+        width: 90%;
+        padding: 15px;
+        border-radius: 5px;
+        backdrop-filter: blur(8px); /* Aumentamos el desenfoque para que el texto resalte más */
+        background: rgba(0, 0, 0, 0.5); /* Aumentamos la opacidad del fondo del texto */
+    }
+    
+    .content .name {
+        font-size: 32px;
+        font-weight: 800;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .content .des {
+        font-size: 14px;
+        line-height: 1.3;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ======================== ESTILOS DE LOS BOTONES DE NAVEGACIÓN ======================== */
+    .button {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
